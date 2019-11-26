@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,6 +30,19 @@ namespace RandomSeatAssigner
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+            string url = @"https://lukejlen.github.io/studentsjson/";
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = response.Content.ReadAsStringAsync().Result;
+                    students st = JsonConvert.DeserializeObject<students>(content);
+
+                    ListBox.Text = st.name + "\n" + " - " + gq.character;
+                }
+            }
         }
     }
 }
