@@ -15,7 +15,7 @@ namespace RandomSeatAssigner
 
         public override string ToString()
         {
-            return $"{name} is {name} inches tall and weighs {status} pounds.";
+            return " {name} ";
         }
 
 
