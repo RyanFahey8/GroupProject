@@ -7,8 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="DisplayLB" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="448"/>
-        <Button x:Name="AssignButton" Content="Assign Seats" HorizontalAlignment="Left" Margin="476,309,0,0" VerticalAlignment="Top" Width="309" Click="Button_Click" Height="100"/>
+        <ListBox x:Name="StudentLB" HorizontalAlignment="Left" Height="380" Margin="10,29,0,0" VerticalAlignment="Top" Width="278"/>
+        <Button x:Name="AssignButton" Content="Assign Seats" HorizontalAlignment="Left" Margin="476,309,0,0" VerticalAlignment="Top" Width="309" Click="AssignButton_Click" Height="100"/>
+        <ListBox x:Name="SeatLB" HorizontalAlignment="Left" Height="380" Margin="293,29,0,0" VerticalAlignment="Top" Width="178"/>
+        <Label Content="Students:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Label Content="Seats:" HorizontalAlignment="Left" Margin="293,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
 
     </Grid>
 </Window>

@@ -56,10 +56,21 @@ namespace RandomSeatAssigner
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AssignButton_Click(object sender, RoutedEventArgs e)
         {
+            List<string> students = new List<string>();
+            students s = new students();
+            foreach (var student in students)
+            {
+               
+            }
 
+            List<int> seats = new List<int>();
 
+            foreach (var seat in seats)
+            {
+
+            }
         }
     }
 }
