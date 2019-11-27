@@ -37,9 +37,18 @@ namespace RandomSeatAssigner
                 {
                     var content = response.Content.ReadAsStringAsync().Result;
                     var VARIABLE = JsonConvert.DeserializeObject<students>(content);
-
                 }
+            }
 
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response2 = client.GetAsync(@"https://lukejlen.github.io/workstationJSON/").Result;
+                if (response2.IsSuccessStatusCode)
+                {
+                    var content2 = response2.Content.ReadAsStringAsync().Result;
+                    var VARIABLE2 = JsonConvert.DeserializeObject<workstation>(content2);
+                }
 
 
 
@@ -50,7 +59,8 @@ namespace RandomSeatAssigner
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            
+
         }
     }
 }
+
