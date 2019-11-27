@@ -8,8 +8,8 @@ namespace RandomSeatAssigner
 {
     public class students
     {
-       public String name { get; set; }
-       public String status { get; set; }
+       public string name { get; set; }
+       public string status { get; set; }
 
         public int station { get; set; }
 
