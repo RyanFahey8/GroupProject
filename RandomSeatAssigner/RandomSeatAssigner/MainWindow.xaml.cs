@@ -39,19 +39,37 @@ namespace RandomSeatAssigner
 
         private void AssignButton_Click(object sender, RoutedEventArgs e)
         {
-            List<string> students = new List<string>();
-            students s = new students();
-            foreach (var student in students)
+            if (File.Exists(FileBox.Text) == true)
             {
-               
+                var lines = File.ReadAllLines(FileBox.Text);
+
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    var line = lines[i];
+                    var column = line.Split(',');
+
+                    List<string> students = new List<string>();
+                    students s = new students();
+                    foreach (var student in students)
+                    {
+
+                    }
+
+                    List<int> seats = new List<int>();
+
+                    foreach (var seat in seats)
+                    {
+
+                    }
+                }
             }
+        }
 
-            List<int> seats = new List<int>();
-
-            foreach (var seat in seats)
-            {
-
-            }
+        private void FileButton_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            var result = dlg.ShowDialog();
+            FileBox.Text = dlg.FileName;
         }
     }
 }
