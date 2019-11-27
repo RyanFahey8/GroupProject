@@ -27,10 +27,10 @@ namespace RandomSeatAssigner
         {
             InitializeComponent();
 
-            String studentsJSON = File.ReadAllText("C:\\Users\\luke_\\OneDrive\\Desktop\\students.json");
-            StudentLB.Items.Add(studentsJSON);
-            String workstationsJSON = File.ReadAllText("C:\\Users\\luke_\\OneDrive\\Desktop\\Workstations.json");
-            SeatLB.Items.Add(workstationsJSON);
+            //String studentsJSON = File.ReadAllText("C:\\Users\\luke_\\OneDrive\\Desktop\\students.json");
+            //StudentLB.Items.Add(studentsJSON);
+            //String workstationsJSON = File.ReadAllText("C:\\Users\\luke_\\OneDrive\\Desktop\\Workstations.json");
+            //SeatLB.Items.Add(workstationsJSON);
 
 
 
@@ -42,25 +42,15 @@ namespace RandomSeatAssigner
             if (File.Exists(FileBox.Text) == true)
             {
                 var lines = File.ReadAllLines(FileBox.Text);
+                Random rand;
 
                 for (int i = 1; i < lines.Length; i++)
                 {
                     var line = lines[i];
                     var column = line.Split(',');
-
-                    List<string> students = new List<string>();
-                    students s = new students();
-                    foreach (var student in students)
-                    {
-
-                    }
-
-                    List<int> seats = new List<int>();
-
-                    foreach (var seat in seats)
-                    {
-
-                    }
+                    string name = column[0];
+                    StudentLB.Items.Add(name);
+                    //SeatLB.Items.Add(rand);
                 }
             }
         }
