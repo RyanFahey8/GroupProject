@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace RandomSeatAssigner
 {
@@ -26,34 +27,14 @@ namespace RandomSeatAssigner
         {
             InitializeComponent();
 
+            String studentsJSON = File.ReadAllText("C:\\Users\\luke_\\OneDrive\\Desktop\\students.json");
+            StudentLB.Items.Add(studentsJSON);
+            String workstationsJSON = File.ReadAllText("C:\\Users\\luke_\\OneDrive\\Desktop\\Workstations.json");
+            SeatLB.Items.Add(workstationsJSON);
 
 
 
 
-            using (HttpClient client = new HttpClient())
-            {
-                HttpResponseMessage response = client.GetAsync(@"https://lukejlen.github.io/studentsjson/").Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    var content = response.Content.ReadAsStringAsync().Result;
-                    var VARIABLE = JsonConvert.DeserializeObject<students>(content);
-                }
-            }
-
-
-            using (HttpClient client = new HttpClient())
-            {
-                HttpResponseMessage response2 = client.GetAsync(@"https://lukejlen.github.io/workstationJSON/").Result;
-                if (response2.IsSuccessStatusCode)
-                {
-                    var content2 = response2.Content.ReadAsStringAsync().Result;
-                    var VARIABLE2 = JsonConvert.DeserializeObject<workstation>(content2);
-                }
-
-
-
-
-            }
         }
 
         private void AssignButton_Click(object sender, RoutedEventArgs e)
