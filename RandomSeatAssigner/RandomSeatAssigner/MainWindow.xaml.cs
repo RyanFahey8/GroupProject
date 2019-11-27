@@ -25,24 +25,32 @@ namespace RandomSeatAssigner
         public MainWindow()
         {
             InitializeComponent();
+
+            
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = client.GetAsync(@"https://lukejlen.github.io/studentsjson/").Result;
+                
+                    var content = response.Content.ReadAsStringAsync().Result;
+                    students st = JsonConvert.DeserializeObject<students>(content);
+                    
+
+
+
+                
+            }
+
+
+
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            string url = @"https://lukejlen.github.io/studentsjson/";
-
-            using (HttpClient client = new HttpClient())
-            {
-                HttpResponseMessage response = client.GetAsync(url).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    var content = response.Content.ReadAsStringAsync().Result;
-                    students st = JsonConvert.DeserializeObject<students>(content);
-
-                    ListBox.Text = st.name + "\n" + " - " + gq.character;
-                }
-            }
+            
         }
     }
 }

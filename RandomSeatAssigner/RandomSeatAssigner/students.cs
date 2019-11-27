@@ -6,13 +6,25 @@ using System.Threading.Tasks;
 
 namespace RandomSeatAssigner
 {
-    class students
+    public class students
     {
-        String name { get; set; }
-        String status { get; set; }
+       public String name { get; set; }
+       public String status { get; set; }
 
-        int station { get; set; }
+        public int station { get; set; }
+
+        public override string ToString()
+        {
+            return $"{name} is {name} inches tall and weighs {status} pounds.";
+        }
 
 
     }
+
+    public class RootObject
+    {
+        public List<students> students { get; set; }
+    }
+
+
 }
