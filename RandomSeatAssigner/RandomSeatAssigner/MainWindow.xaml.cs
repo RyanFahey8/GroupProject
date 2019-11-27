@@ -27,10 +27,7 @@ namespace RandomSeatAssigner
         {
             InitializeComponent();
 
-            String studentsJSON = File.ReadAllText("C:\\Users\\luke_\\OneDrive\\Desktop\\students.json");
-            StudentLB.Items.Add(studentsJSON);
-            String workstationsJSON = File.ReadAllText("C:\\Users\\luke_\\OneDrive\\Desktop\\Workstations.json");
-            SeatLB.Items.Add(workstationsJSON);
+          
 
 
 
