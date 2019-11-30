@@ -27,10 +27,6 @@ namespace RandomSeatAssigner
         {
             InitializeComponent();
 
-          
-
-
-
 
         }
 
@@ -39,15 +35,25 @@ namespace RandomSeatAssigner
             if (File.Exists(FileBox.Text) == true)
             {
                 var lines = File.ReadAllLines(FileBox.Text);
-                Random rand;
-
+                Random random = new Random();
+                List<int> availableseats = new List<int>();
+                for(int j = 1; j <= 35; j++)
+                {
+                    availableseats.Add(j);
+                }
                 for (int i = 1; i < lines.Length; i++)
                 {
                     var line = lines[i];
                     var column = line.Split(',');
                     string name = column[0];
                     StudentLB.Items.Add(name);
-                    //SeatLB.Items.Add(rand);
+
+                    int seat = random.Next(35);
+                    if(availableseats.Contains(seat))
+                    {
+                        SeatLB.Items.Add(seat);
+                        availableseats.Remove(seat);
+                    }
                 }
             }
         }
