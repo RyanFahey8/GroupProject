@@ -7,14 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="StudentLB" HorizontalAlignment="Left" Height="380" Margin="10,29,0,0" VerticalAlignment="Top" Width="278"/>
-        <Button x:Name="AssignButton" Content="Assign Seats" HorizontalAlignment="Left" Margin="476,309,0,0" VerticalAlignment="Top" Width="309" Click="AssignButton_Click" Height="100"/>
-        <ListBox x:Name="SeatLB" HorizontalAlignment="Left" Height="380" Margin="293,29,0,0" VerticalAlignment="Top" Width="178"/>
-        <Label Content="Students:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <Label Content="Seats:" HorizontalAlignment="Left" Margin="293,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <Button x:Name="FileButton" Content="Select File" HorizontalAlignment="Left" Margin="710,29,0,0" VerticalAlignment="Top" Width="85" Height="39" Click="FileButton_Click"/>
-        <TextBox x:Name="FileBox" HorizontalAlignment="Left" Height="39" Margin="489,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216"/>
-        <Label Content="Select CSV file with names in column 1" HorizontalAlignment="Left" Margin="489,3,0,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="142*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="StudentLB" HorizontalAlignment="Left" Height="380" Margin="10,29,0,0" VerticalAlignment="Top" Width="278" Grid.ColumnSpan="2"/>
+        <Button x:Name="AssignButton" Content="Assign Seats" HorizontalAlignment="Left" Margin="391.403,309,0,0" VerticalAlignment="Top" Width="309" Click="AssignButton_Click" Height="100" Grid.Column="1"/>
+        <ListBox x:Name="SeatLB" HorizontalAlignment="Left" Height="380" Margin="208.403,29,0,0" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+        <Label Content="Students:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.ColumnSpan="2"/>
+        <Label Content="Seats:" HorizontalAlignment="Left" Margin="208.403,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Column="1"/>
+        <Button x:Name="FileButton" Content="Select File" HorizontalAlignment="Left" Margin="625.403,29,0,0" VerticalAlignment="Top" Width="85" Height="39" Click="FileButton_Click" Grid.Column="1"/>
+        <TextBox x:Name="FileBox" HorizontalAlignment="Left" Height="39" Margin="404.403,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Grid.Column="1"/>
+        <Label Content="Select CSV file with names in the first column" HorizontalAlignment="Left" Margin="404.403,3,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="BrokenTB" HorizontalAlignment="Left" Height="55" Margin="404,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Grid.Column="1"/>
+        <Label Content="Enter in any broken seats - separate by comma" HorizontalAlignment="Left" Margin="404,152,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="SeatCountTB" HorizontalAlignment="Left" Height="48" Margin="404.403,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Grid.Column="1"/>
+        <Label Content="Enter the number of seats in your class" HorizontalAlignment="Left" Margin="404.403,73,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
     </Grid>
 </Window>
