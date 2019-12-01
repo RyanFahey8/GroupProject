@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomSeatAssigner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <Grid Background="#FF70CDE2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="17*"/>
             <ColumnDefinition Width="142*"/>
@@ -23,6 +23,11 @@
         <Label Content="Enter in any broken seats - separate by comma" HorizontalAlignment="Left" Margin="404,152,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <TextBox x:Name="SeatCountTB" HorizontalAlignment="Left" Height="48" Margin="404.403,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Grid.Column="1"/>
         <Label Content="Enter the number of seats in your class" HorizontalAlignment="Left" Margin="404.403,73,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="37" Margin="531,267,0,0" VerticalAlignment="Top" Width="169">
+            <RadioButton x:Name="SkipButton" Content="Yes"/>
+            <RadioButton x:Name="DontSkipButton" Content="No"/>
+        </StackPanel>
+        <Label Content="Do you want to have every other seat?" Grid.Column="1" HorizontalAlignment="Left" Margin="391,238,0,0" VerticalAlignment="Top" Width="272" Height="24"/>
 
     </Grid>
 </Window>

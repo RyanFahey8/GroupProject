@@ -32,46 +32,98 @@ namespace RandomSeatAssigner
 
         private void AssignButton_Click(object sender, RoutedEventArgs e)
         {
-            int seatnum = Convert.ToInt32(SeatCountTB.Text);
-            if (File.Exists(FileBox.Text) == true)
+            if(SkipButton.IsChecked==true)
             {
-                var lines = File.ReadAllLines(FileBox.Text);
-                Random random = new Random();
-                List<int> availableseats = new List<int>();
-                for(int j = 1; j <= seatnum; j++)
+                int seatnum = Convert.ToInt32(SeatCountTB.Text);
+                if (File.Exists(FileBox.Text) == true)
                 {
-                    availableseats.Add(j);
-                }
-
-                if(BrokenTB.Text.Length>0)
-                {
-                    string brokenlist = BrokenTB.Text;
-                    List<int> brokenseats = brokenlist.Split(',').Select(int.Parse).ToList();
-                    foreach (var brokenseat in brokenseats)
+                    var lines = File.ReadAllLines(FileBox.Text);
+                    Random random = new Random();
+                    List<int> availableseats = new List<int>();
+                    for (int j = 1; j <= seatnum; j+=2)
                     {
-                        availableseats.Remove(Convert.ToInt32(brokenseat));
+                        availableseats.Add(j);
                     }
-                }
 
-
-                for (int i = 1; i < lines.Length; i++)
-                {
-                    var line = lines[i];
-                    var column = line.Split(',');
-                    string name = column[0];
-                    StudentLB.Items.Add(name);
-
-                    int seat;
-                    do
+                    if (BrokenTB.Text.Length > 0)
                     {
-                       seat = random.Next(seatnum);
-                    } while (!availableseats.Contains(seat));
+                        string brokenlist = BrokenTB.Text;
+                        List<int> brokenseats = brokenlist.Split(',').Select(int.Parse).ToList();
+                        foreach (var brokenseat in brokenseats)
+                        {
+                            availableseats.Remove(Convert.ToInt32(brokenseat));
+                        }
+                    }
+
+
+
+                    for (int i = 1; i < lines.Length; i++)
+                    {
+                        var line = lines[i];
+                        var column = line.Split(',');
+                        string name = column[0];
+                        StudentLB.Items.Add(name);
+
+                        int seat;
+                        do
+                        {
+                            seat = random.Next(seatnum);
+                        } while (!availableseats.Contains(seat));
 
 
                         SeatLB.Items.Add(seat);
                         availableseats.Remove(seat);
+                    }
                 }
             }
+            else if(DontSkipButton.IsChecked==true)
+            {
+                int seatnum = Convert.ToInt32(SeatCountTB.Text);
+                if (File.Exists(FileBox.Text) == true)
+                {
+                    var lines = File.ReadAllLines(FileBox.Text);
+                    Random random = new Random();
+                    List<int> availableseats = new List<int>();
+                    for (int j = 1; j <= seatnum; j++)
+                    {
+                        availableseats.Add(j);
+                    }
+
+                    if (BrokenTB.Text.Length > 0)
+                    {
+                        string brokenlist = BrokenTB.Text;
+                        List<int> brokenseats = brokenlist.Split(',').Select(int.Parse).ToList();
+                        foreach (var brokenseat in brokenseats)
+                        {
+                            availableseats.Remove(Convert.ToInt32(brokenseat));
+                        }
+                    }
+
+
+                    for (int i = 1; i < lines.Length; i++)
+                    {
+                        var line = lines[i];
+                        var column = line.Split(',');
+                        string name = column[0];
+                        StudentLB.Items.Add(name);
+
+                        int seat;
+                        do
+                        {
+                            seat = random.Next(seatnum);
+                        } while (!availableseats.Contains(seat));
+
+
+                        SeatLB.Items.Add(seat);
+                        availableseats.Remove(seat);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error. Please fill out all fields.");
+            }
+
         }
 
         private void FileButton_Click(object sender, RoutedEventArgs e)
